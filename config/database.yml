@@ -9,13 +9,13 @@ default: &default
 
 development:
   <<: *default
-  database: app_development
+  database: yurtle_api_development
 
 test:
   <<: *default
-  database: app_test
+  database: yurtle_api_test
 
 production:
   <<: *default
-  database: app_production
+  database: yurtle_api_production
   password: <%= ENV['APP_DATABASE_PASSWORD'] %>
