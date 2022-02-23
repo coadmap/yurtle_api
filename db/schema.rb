@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2022_02_23_073621) do
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
 
-  create_table "tasks", comment: "タスク", force: :cascade do |t|
+  create_table "tasks", id: :uuid, default: -> { "gen_random_uuid()" }, comment: "タスク", force: :cascade do |t|
     t.string "name", null: false, comment: "タスク名"
     t.boolean "completed", default: false, null: false, comment: "完了済みか"
     t.date "deadline", comment: "期限日"

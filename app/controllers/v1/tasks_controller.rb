@@ -6,7 +6,7 @@ module V1
     before_action :find_task, only: %i[show update complete]
 
     def index
-      @tasks = Task.all
+      @tasks = Task.where(completed: false)
       render json: @tasks
     end
 

@@ -17,3 +17,10 @@
 
 # master key Multi envに対応
 /config/**/*.key
+/config/credentials/development.key
+
+/config/master.key
+
+/config/credentials/production.key
+
+/config/credentials/test.key

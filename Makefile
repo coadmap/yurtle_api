@@ -107,19 +107,3 @@ db_rollback: check-files rails_env_check
 	@$(RAILS_C) db:rollback RAILS_ENV=$(MAKE_RAILS_ENV)
 db_reset: check-files
 	@$(RAILS_C) db:reset
-
-# Terraform関連コマンド
-.PHONY: terraform_init terraform_plan terraform_apply terraform_destroy terraform_fmt
-terraform_env_check:
-	@$(eval TERRAFORM_ENV := $(shell read -p "ENV? (prd or stg): " ENV; echo $$ENV))
-	@echo "run command in $(TERRAFORM_ENV)"
-terraform_init: terraform_env_check
-	@${TF_CD} && terraform init
-terraform_plan: terraform_env_check
-	@${TF_CD} && terraform plan
-terraform_apply: terraform_env_check
-	@${TF_CD} && terraform apply
-terraform_destroy: terraform_env_check
-	@${TF_CD} && terraform destroy
-terraform_fmt:
-	@cd ./terraform && terraform fmt -recursive
