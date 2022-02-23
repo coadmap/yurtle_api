@@ -18,4 +18,3 @@ test:
 production:
   <<: *default
   database: yurtle_api_production
-  password: <%= ENV['APP_DATABASE_PASSWORD'] %>

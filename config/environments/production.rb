@@ -17,14 +17,14 @@ Rails.application.configure do
   ## Mailer
   config.action_mailer.perform_caching = false
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    address: 'smtp.sendgrid.net',
-    port: 587,
-    user_name: 'apikey',
-    password: ENV.fetch('SMTP_PASSWORD'),
-    authentication: :plain,
-    enable_starttls_auto: true
-  }
+  # config.action_mailer.smtp_settings = {
+  #   address: 'smtp.sendgrid.net',
+  #   port: 587,
+  #   user_name: 'apikey',
+  #   password: ENV.fetch('SMTP_PASSWORD'),
+  #   authentication: :plain,
+  #   enable_starttls_auto: true
+  # }
 
   ## Logger
   if ENV['RAILS_LOG_TO_STDOUT'].present?
