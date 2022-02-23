@@ -4,7 +4,7 @@ FactoryBot.define do
   factory :task do
     name { 'xxする' }
     completed { false }
-    deadline { Date.today }
+    deadline { Time.zone.today }
 
     trait :completed do
       completed { true }
