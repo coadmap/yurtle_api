@@ -13,7 +13,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'config'
 gem 'dotenv-rails'
 gem 'niceql', '~> 0.1.25'
-gem 'pg', '~> 1.1'
+gem 'pg', '~> 1.2.3'
 gem 'puma', '~> 5.0'
 gem 'rack-cors'
 gem 'tzinfo-data'
