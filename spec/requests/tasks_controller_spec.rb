@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 require 'rails_helper'
 
-RSpec.describe V1::TasksController, type: :request do
-  describe 'GET /v1/tasks' do
-    subject(:request) { get v1_tasks_path }
+RSpec.describe TasksController, type: :request do
+  describe 'GET /tasks' do
+    subject(:request) { get tasks_path }
     let!(:tasks) { create_list(:task, 3) }
 
     it 'タスク一覧が取得できること' do
@@ -14,8 +14,8 @@ RSpec.describe V1::TasksController, type: :request do
     end
   end
 
-  describe 'POST /v1/tasks' do
-    subject(:request) { post v1_tasks_path, params: params }
+  describe 'POST /tasks' do
+    subject(:request) { post tasks_path, params: params }
     let(:params) { { task: { name: '料理する', deadline: Date.tomorrow } } }
 
     it 'タスクを作成できること' do
@@ -24,8 +24,8 @@ RSpec.describe V1::TasksController, type: :request do
     end
   end
 
-  describe 'GET /v1/tasks/:id' do
-    subject(:request) { get v1_task_path(task.id) }
+  describe 'GET /tasks/:id' do
+    subject(:request) { get task_path(task.id) }
     let!(:task) { create(:task) }
 
     it 'タスクが取得できること' do
@@ -36,8 +36,8 @@ RSpec.describe V1::TasksController, type: :request do
     end
   end
 
-  describe 'PATCH /v1/tasks/:id' do
-    subject(:request) { patch v1_task_path(task.id), params: params }
+  describe 'PATCH /tasks/:id' do
+    subject(:request) { patch task_path(task.id), params: params }
     let!(:task) { create(:task) }
     let(:params) { { task: { name: '食べる' } } }
 
@@ -49,8 +49,8 @@ RSpec.describe V1::TasksController, type: :request do
     end
   end
 
-  describe 'POST /v1/tasks/:id/complete' do
-    subject(:request) { post complete_v1_task_path(task.id) }
+  describe 'POST /tasks/:id/complete' do
+    subject(:request) { post complete_task_path(task.id) }
     let!(:task) { create(:task) }
 
     it 'タスク完了できること' do
