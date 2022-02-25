@@ -6,7 +6,7 @@ class TasksController < ApplicationController
 
   def index
     @tasks = Task.where(completed: false)
-    render json: @tasks
+    render json: @tasks, adapter: :json
   end
 
   def show
