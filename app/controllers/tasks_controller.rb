@@ -2,7 +2,7 @@
 
 # TasksController
 class TasksController < ApplicationController
-  before_action :find_task, only: %i[show update complete]
+  before_action :find_task, only: %i[show update complete destroy]
 
   def index
     @tasks = Task.where(completed: false)
@@ -26,6 +26,10 @@ class TasksController < ApplicationController
   def complete
     @task.update!(completed: true)
     render json: @task
+  end
+
+  def destroy
+    @task.destroy!
   end
 
   private
