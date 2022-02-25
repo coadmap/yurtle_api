@@ -5,7 +5,7 @@ class TasksController < ApplicationController
   before_action :find_task, only: %i[show update complete destroy]
 
   def index
-    @tasks = Task.where(completed: false)
+    @tasks = Task.where(completed: false).order(:deadline)
     render json: @tasks, adapter: :json
   end
 
